@@ -11,7 +11,8 @@ export default function Home() {
   const [isEngineDropdownOpen, setIsEngineDropdownOpen] = useState(false);
   const [warning, setWarning] = useState(""); // Warning state for empty input
 
-  const dropdownRef = useRef(null);
+  const fileTypeDropdownRef = useRef(null);
+  const engineDropdownRef = useRef(null);
 
   const engines = {
     google: { name: "Google" },
@@ -86,8 +87,10 @@ export default function Home() {
   };
 
   const handleClickOutside = (event) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+    if (fileTypeDropdownRef.current && !fileTypeDropdownRef.current.contains(event.target)) {
       setIsFileTypeDropdownOpen(false);
+    }
+    if (engineDropdownRef.current && !engineDropdownRef.current.contains(event.target)) {
       setIsEngineDropdownOpen(false);
     }
   };
@@ -106,7 +109,7 @@ export default function Home() {
 
       <div className="w-full max-w-lg bg-gray-800 shadow-lg rounded-lg p-8 transition-transform">
         {/* Custom File Type Selector */}
-        <div className="mb-6" ref={dropdownRef}>
+        <div className="mb-6" ref={fileTypeDropdownRef}>
           <label className="block mb-2 font-semibold text-gray-300">Choose File Type</label>
           <div className="relative">
             <button
@@ -133,7 +136,7 @@ export default function Home() {
         </div>
 
         {/* Custom Search Engine Selector */}
-        <div className="mb-6">
+        <div className="mb-6" ref={engineDropdownRef}>
           <label className="block mb-2 font-semibold text-gray-300">Select Search Engine</label>
           <div className="relative">
             <button
@@ -181,4 +184,4 @@ export default function Home() {
       </div>
     </div>
   );
-}
+          }
