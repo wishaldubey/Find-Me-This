@@ -6,6 +6,7 @@ export default function Document() {
     <Html lang="en">
       <Head>
         {/* Favicon */}
+    <meta name="google-site-verification" content="78IKF1o38uymg2UfKIzqDaJX9aoc9cxWEhnRjhJHsKo" />
         <link rel="icon" href="/favicon.png" sizes="any" />
         
         {/* iOS Icon */}
